@@ -92,12 +92,12 @@ function Privacidad() {
           </p>
           <p>
             <a
-              href="http://Runlnsight.integrador.xyz/"
+              href="https://runinsight.up.railway.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#004a7c] underline"
             >
-              http://Runlnsight.integrador.xyz/
+              https://runinsight.up.railway.app/
             </a>
           </p>
         </section>
