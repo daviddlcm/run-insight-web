@@ -1,14 +1,37 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import logo from '../assets/img/Logo runin.png';
 
-function Navbar() {
+function Navbar({ bg = "transparent" }) {
+  const location = useLocation();
+  const bgClass = bg === "black" ? "bg-black bg-opacity-90" : "bg-transparent";
   return (
-    <nav className="w-full bg-gray-900 text-white px-8 py-4 flex items-center justify-between shadow-md">
-      <span className="font-bold text-xl tracking-wide">RunInsight</span>
-      <ul className="flex gap-6">
-        <li><Link to="/" className="hover:text-blue-400 transition">Inicio</Link></li>
-        <li><Link to="/admin" className="hover:text-blue-400 transition">Admin</Link></li>
-        <li><Link to="/privacidad" className="hover:text-blue-400 transition">Privacidad</Link></li>
+    <nav className={`w-full ${bgClass} text-white px-8 flex items-center justify-between shadow-none py-4`}>
+      <span className="flex items-center gap-2 font-bold text-xl tracking-wide">
+        <img src={logo} alt="Logo" className="w-8 h-8 object-contain" />
+        RunInsight
+      </span>
+      <ul className="flex gap-2">
+        <li>
+          <Link
+            to="/privacidad"
+            className="bg-white text-black px-3 py-2 rounded transition font-poppins-regular font-semibold text-sm"
+            style={{ minWidth: '80px', textAlign: 'center' }}
+          >
+            Aviso de Privacidad
+          </Link>
+        </li>
+        {location.pathname !== "/" && (
+          <li>
+            <Link
+              to="/"
+              className="text-white px-3 py-2 rounded transition font-poppins-regular font-semibold text-sm hover:bg-pink-500 hover:text-white"
+              style={{ minWidth: '80px', textAlign: 'center' }}
+            >
+              Inicio
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );
